@@ -1,0 +1,5 @@
+depth,phase_bits,window,policy,qubits,cx,rz,depth_compiled,oracle_calls
+2,2,sine,calibrated,7,1070,2752,3896,14
+2,3,sine,calibrated,8,2462,6272,8860,30
+2,4,sine,calibrated,9,5226,13286,18774,62
+2,5,sine,calibrated,10,10726,27276,38586,126

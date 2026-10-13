@@ -1,0 +1,24 @@
+{
+  "seeds": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205
+  ],
+  "phase_bits": [
+    3,
+    4,
+    5
+  ],
+  "magnitude_bits": [
+    2,
+    4,
+    6,
+    8
+  ],
+  "scope": "post hoc exploratory ablation; same 6 held-out QRUs reused; no independent tuning claim",
+  "encoding": "truncated signed magnitude; |1| saturates at 1-2^-b",
+  "compilation": "level 0; rz,sx,x,cx; seed 17; no topology"
+}

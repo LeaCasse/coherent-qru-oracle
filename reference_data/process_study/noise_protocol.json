@@ -1,0 +1,29 @@
+{
+  "seeds": [
+    610,
+    611,
+    612
+  ],
+  "depth": 2,
+  "phase_bits": 2,
+  "protocol": "two noncommuting calibrated Z,X controls",
+  "noise": "Aer depolarizing_error(p,2) after every compiled CX",
+  "parameters": [
+    0.0,
+    1e-05,
+    0.0001,
+    0.001
+  ],
+  "basis": [
+    "rz",
+    "sx",
+    "x",
+    "cx"
+  ],
+  "optimization_level": 0,
+  "perfect_operations": "single-qubit gates, Bell preparation, reference, final trace",
+  "no_sampling": true,
+  "topology": null,
+  "metric": "normalized Choi trace norm; not diamond",
+  "purpose": "small sensitivity pilot; not hardware validation or noise-general guarantee"
+}

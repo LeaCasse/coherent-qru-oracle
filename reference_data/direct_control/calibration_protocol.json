@@ -1,0 +1,39 @@
+{
+  "status": "analytic follow-up; same cohort as direct comparison; no new holdout",
+  "formula": "-cos(2*pi*y/N)/cos(pi/N)",
+  "scope": "sine window sin(pi*n/N); no clipping; not sine((n+1)*pi/(N+1))",
+  "depth_2_seeds": [
+    400,
+    401,
+    402,
+    403,
+    404,
+    405,
+    406,
+    407,
+    408,
+    409,
+    410,
+    411
+  ],
+  "depth_4_seeds": [
+    500,
+    501,
+    502,
+    503,
+    504,
+    505
+  ],
+  "phase_bits": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "gamma": 0.8,
+  "source_sha256_at_completion": {
+    "experiments/calibrated_control_study.py": "24880ecd41534113cfad973385974d86990a1871e9d401c053acda50caaa1301",
+    "src/qru_registerization/channel.py": "118bbcc1774f5b024519fbeb4d9ba588f2fe3c9bdac52f4215a74877a3447732"
+  },
+  "resume_note": "One missing configuration (seed 505, m=5) was recomputed; final table has all 72 unique keys."
+}

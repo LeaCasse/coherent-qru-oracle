@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-10",
+  "input_xs": [
+    -0.73,
+    -0.18333333333333324,
+    0.3633333333333335,
+    0.91
+  ],
+  "axis": [
+    0.3,
+    -0.4,
+    0.8660254037844386
+  ],
+  "gamma": 0.8,
+  "training_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105
+  ],
+  "test_seeds": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211
+  ],
+  "shift_seeds": [
+    300,
+    301,
+    302,
+    303,
+    304,
+    305
+  ],
+  "phase_bits": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "signed_bits": "m-1",
+  "dpss_NW": 1.0,
+  "taper_sine": "sin(pi*n/N)",
+  "access": "affine binary loading; 2 input qubits; gate-expanded Grover repetitions",
+  "noise": "phase-word dephasing intervention, not hardware gate noise",
+  "compilation": "rz,sx,x,cx; level 0; seed 17; no coupling map",
+  "scope": "H=Z; known single-qubit QRU; no training of QRU parameters",
+  "python": "3.12.14",
+  "seconds": 245.63328886032104,
+  "source_sha256": {
+    "experiments/channel_study.py": "f4b13c011a43e697f9d434b726f24b89aec5b00a588d462d0c425694b79038ef",
+    "src/qru_registerization/channel.py": "fe3cc09f7bca8f8fe74a91275889728aabe54ce2f1800185bb786bae2b8e6770",
+    "src/qru_registerization/structural.py": "5882e11c768b6bb9fcedbf6e28c1f150ba519f675e3d8df99fe8c755a263f6f4"
+  }
+}

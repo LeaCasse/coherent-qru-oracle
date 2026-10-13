@@ -1,0 +1,70 @@
+{
+  "depth_2_seeds": [
+    400,
+    401,
+    402,
+    403,
+    404,
+    405,
+    406,
+    407,
+    408,
+    409,
+    410,
+    411
+  ],
+  "depth_4_seeds": [
+    500,
+    501,
+    502,
+    503,
+    504,
+    505
+  ],
+  "phase_bits": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "policies": [
+    "signed4",
+    "signed8",
+    "direct"
+  ],
+  "windows": [
+    "tophat",
+    "sine"
+  ],
+  "xs": [
+    -0.73,
+    -0.18333333333333324,
+    0.3633333333333335,
+    0.91
+  ],
+  "axis": [
+    0.3,
+    -0.4,
+    0.8660254037844386
+  ],
+  "gamma": 0.8,
+  "fibre": [
+    0.0,
+    1.3,
+    2.6,
+    3.9000000000000004
+  ],
+  "compilation": "level 0, rz/sx/x/cx, seed 17, no topology",
+  "scope": "fresh random QRUs; fixed model-score target; no training, no hardware noise",
+  "source_sha256": {
+    "experiments/direct_control_study.py": "cca93dfc2d5faaf79df79a4b392c3cd7fd4de139fad393171d1465a2f64c5289",
+    "src/qru_registerization/channel.py": "97fb5656419bdfcbc48b6616be4b7a06883648c2921a0448fb08c501de595cb0",
+    "src/qru_registerization/structural.py": "33492e7f5206eb34f929d3d47ab6c7c844d596dd07ee8d8cca95a0b60dd33b30"
+  },
+  "source_sha256_at_completion": {
+    "experiments/direct_control_study.py": "cca93dfc2d5faaf79df79a4b392c3cd7fd4de139fad393171d1465a2f64c5289",
+    "src/qru_registerization/channel.py": "118bbcc1774f5b024519fbeb4d9ba588f2fe3c9bdac52f4215a74877a3447732",
+    "src/qru_registerization/structural.py": "33492e7f5206eb34f929d3d47ab6c7c844d596dd07ee8d8cca95a0b60dd33b30"
+  },
+  "completion_note": "Only the channel control_scores docstring changed during this campaign; executable mathematics did not change."
+}

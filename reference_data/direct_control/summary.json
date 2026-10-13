@@ -1,0 +1,568 @@
+{
+  "rows": {
+    "comparison": 432,
+    "calibration": 72,
+    "gauge_direct": 144,
+    "compilations": 36,
+    "reuse": 144
+  },
+  "max_sdp_gap": 9.186120109028195e-08,
+  "max_tp_error": 3.5638159090467525e-14,
+  "min_cp_eigenvalue": -1.5241204143257514e-15,
+  "max_calibrated_bias": 1.4654943925052066e-14,
+  "max_calibrated_bound_excess": -2.3370183840343978e-05,
+  "max_gauge_bound_excess": -0.0003493835237101872,
+  "max_calibrated_gauge_bound_excess": -0.0003527947367820061,
+  "means": [
+    {
+      "depth": 2,
+      "phase_bits": 2,
+      "policy": "signed4",
+      "diamond_mean": 0.4583136663166594,
+      "ci95": [
+        0.43527831149539326,
+        0.4821954700966153
+      ],
+      "leak_mean": 0.13404462343278303
+    },
+    {
+      "depth": 2,
+      "phase_bits": 2,
+      "policy": "signed8",
+      "diamond_mean": 0.44271004669432096,
+      "ci95": [
+        0.425632185195908,
+        0.46090655496429445
+      ],
+      "leak_mean": 0.15038780677125663
+    },
+    {
+      "depth": 2,
+      "phase_bits": 2,
+      "policy": "direct",
+      "diamond_mean": 0.4419394358309967,
+      "ci95": [
+        0.42516815561127713,
+        0.45981486348960793
+      ],
+      "leak_mean": 0.15150488825683064
+    },
+    {
+      "depth": 2,
+      "phase_bits": 2,
+      "policy": "calibrated",
+      "diamond_mean": 0.5718877860180512,
+      "ci95": [
+        0.5700611829518327,
+        0.5735259446279224
+      ],
+      "leak_mean": 0.28678143384700444
+    },
+    {
+      "depth": 2,
+      "phase_bits": 3,
+      "policy": "signed4",
+      "diamond_mean": 0.16803840019935193,
+      "ci95": [
+        0.1589144127409376,
+        0.17843270227690197
+      ],
+      "leak_mean": 0.06724813123742418
+    },
+    {
+      "depth": 2,
+      "phase_bits": 3,
+      "policy": "signed8",
+      "diamond_mean": 0.15105021291233484,
+      "ci95": [
+        0.1407477343070291,
+        0.15852618654466652
+      ],
+      "leak_mean": 0.07126301808895731
+    },
+    {
+      "depth": 2,
+      "phase_bits": 3,
+      "policy": "direct",
+      "diamond_mean": 0.15094693427503178,
+      "ci95": [
+        0.14037803941871382,
+        0.158546749266797
+      ],
+      "leak_mean": 0.07130988488322537
+    },
+    {
+      "depth": 2,
+      "phase_bits": 3,
+      "policy": "calibrated",
+      "diamond_mean": 0.16438821200259454,
+      "ci95": [
+        0.14338830482076687,
+        0.17741543856314704
+      ],
+      "leak_mean": 0.08310266993687544
+    },
+    {
+      "depth": 2,
+      "phase_bits": 4,
+      "policy": "signed4",
+      "diamond_mean": 0.07721672516929322,
+      "ci95": [
+        0.06300246513058613,
+        0.09334326034066404
+      ],
+      "leak_mean": 0.019197298235869197
+    },
+    {
+      "depth": 2,
+      "phase_bits": 4,
+      "policy": "signed8",
+      "diamond_mean": 0.04311766181914633,
+      "ci95": [
+        0.04041892357101573,
+        0.04530537333651811
+      ],
+      "leak_mean": 0.019983987596213088
+    },
+    {
+      "depth": 2,
+      "phase_bits": 4,
+      "policy": "direct",
+      "diamond_mean": 0.04248807508867266,
+      "ci95": [
+        0.03931345928198317,
+        0.0452060776645379
+      ],
+      "leak_mean": 0.02024399785832573
+    },
+    {
+      "depth": 2,
+      "phase_bits": 4,
+      "policy": "calibrated",
+      "diamond_mean": 0.04175409889735943,
+      "ci95": [
+        0.03584701308557296,
+        0.04631876914838572
+      ],
+      "leak_mean": 0.02103653176266192
+    },
+    {
+      "depth": 2,
+      "phase_bits": 5,
+      "policy": "signed4",
+      "diamond_mean": 0.07118674263523209,
+      "ci95": [
+        0.06325828246810407,
+        0.07823808689509223
+      ],
+      "leak_mean": 0.005180332592885741
+    },
+    {
+      "depth": 2,
+      "phase_bits": 5,
+      "policy": "signed8",
+      "diamond_mean": 0.013058859948250451,
+      "ci95": [
+        0.012351896456102317,
+        0.0137090140714715
+      ],
+      "leak_mean": 0.005113654362461871
+    },
+    {
+      "depth": 2,
+      "phase_bits": 5,
+      "policy": "direct",
+      "diamond_mean": 0.010704551396622285,
+      "ci95": [
+        0.009967150920059481,
+        0.011311393697642067
+      ],
+      "leak_mean": 0.00518990907875778
+    },
+    {
+      "depth": 2,
+      "phase_bits": 5,
+      "policy": "calibrated",
+      "diamond_mean": 0.010378691306870184,
+      "ci95": [
+        0.009155327178288899,
+        0.0113071758957192
+      ],
+      "leak_mean": 0.00523998503115546
+    },
+    {
+      "depth": 4,
+      "phase_bits": 2,
+      "policy": "signed4",
+      "diamond_mean": 0.44221140548182314,
+      "ci95": [
+        0.3913236856265197,
+        0.4950998176740986
+      ],
+      "leak_mean": 0.13346252830634867
+    },
+    {
+      "depth": 4,
+      "phase_bits": 2,
+      "policy": "signed8",
+      "diamond_mean": 0.43240781577237514,
+      "ci95": [
+        0.3911854403271234,
+        0.4755164021571678
+      ],
+      "leak_mean": 0.14965496848262239
+    },
+    {
+      "depth": 4,
+      "phase_bits": 2,
+      "policy": "direct",
+      "diamond_mean": 0.4319618721276355,
+      "ci95": [
+        0.39138601012853064,
+        0.4744191346707314
+      ],
+      "leak_mean": 0.15076111220785726
+    },
+    {
+      "depth": 4,
+      "phase_bits": 2,
+      "policy": "calibrated",
+      "diamond_mean": 0.556404219828051,
+      "ci95": [
+        0.5421131729283146,
+        0.5681892971799251
+      ],
+      "leak_mean": 0.2841120058777705
+    },
+    {
+      "depth": 4,
+      "phase_bits": 3,
+      "policy": "signed4",
+      "diamond_mean": 0.15802692311671412,
+      "ci95": [
+        0.1497053093778276,
+        0.16415922112527123
+      ],
+      "leak_mean": 0.0640831100101601
+    },
+    {
+      "depth": 4,
+      "phase_bits": 3,
+      "policy": "signed8",
+      "diamond_mean": 0.14840171986420395,
+      "ci95": [
+        0.12676745233715514,
+        0.1625199925728185
+      ],
+      "leak_mean": 0.06805679725710849
+    },
+    {
+      "depth": 4,
+      "phase_bits": 3,
+      "policy": "direct",
+      "diamond_mean": 0.14821560379059148,
+      "ci95": [
+        0.1261671120793387,
+        0.16253442540684304
+      ],
+      "leak_mean": 0.06812010941310342
+    },
+    {
+      "depth": 4,
+      "phase_bits": 3,
+      "policy": "calibrated",
+      "diamond_mean": 0.1566809509451031,
+      "ci95": [
+        0.11673571440917285,
+        0.17939320809446935
+      ],
+      "leak_mean": 0.07938544148686931
+    },
+    {
+      "depth": 4,
+      "phase_bits": 4,
+      "policy": "signed4",
+      "diamond_mean": 0.0645490666935407,
+      "ci95": [
+        0.05215068332593912,
+        0.07623182027234833
+      ],
+      "leak_mean": 0.019104459433014365
+    },
+    {
+      "depth": 4,
+      "phase_bits": 4,
+      "policy": "signed8",
+      "diamond_mean": 0.042704197255122256,
+      "ci95": [
+        0.03752768525060094,
+        0.04597542156341775
+      ],
+      "leak_mean": 0.019813262079373135
+    },
+    {
+      "depth": 4,
+      "phase_bits": 4,
+      "policy": "direct",
+      "diamond_mean": 0.04264686412635297,
+      "ci95": [
+        0.0369772440961862,
+        0.046247514209992756
+      ],
+      "leak_mean": 0.020176725743671204
+    },
+    {
+      "depth": 4,
+      "phase_bits": 4,
+      "policy": "calibrated",
+      "diamond_mean": 0.041710330151231684,
+      "ci95": [
+        0.031113242715981027,
+        0.04774601170819481
+      ],
+      "leak_mean": 0.02096704475916039
+    },
+    {
+      "depth": 4,
+      "phase_bits": 5,
+      "policy": "signed4",
+      "diamond_mean": 0.06125173630883384,
+      "ci95": [
+        0.0484291355532965,
+        0.0737806976096611
+      ],
+      "leak_mean": 0.005003177483732653
+    },
+    {
+      "depth": 4,
+      "phase_bits": 5,
+      "policy": "signed8",
+      "diamond_mean": 0.013679335605861894,
+      "ci95": [
+        0.012597796861842231,
+        0.014492416993509392
+      ],
+      "leak_mean": 0.005059660755232638
+    },
+    {
+      "depth": 4,
+      "phase_bits": 5,
+      "policy": "direct",
+      "diamond_mean": 0.010839540825366673,
+      "ci95": [
+        0.009529895512083593,
+        0.011704691976822508
+      ],
+      "leak_mean": 0.005138784005485879
+    },
+    {
+      "depth": 4,
+      "phase_bits": 5,
+      "policy": "calibrated",
+      "diamond_mean": 0.010324748945506048,
+      "ci95": [
+        0.008086352782324686,
+        0.01170157182726094
+      ],
+      "leak_mean": 0.005188446265777839
+    }
+  ],
+  "paired": [
+    {
+      "depth": 2,
+      "phase_bits": 2,
+      "contrast": "direct-minus-signed4",
+      "difference_mean": -0.016374230485662614,
+      "ci95": [
+        -0.023480131004827546,
+        -0.009788864297217764
+      ],
+      "wins": 12,
+      "n": 12
+    },
+    {
+      "depth": 2,
+      "phase_bits": 2,
+      "contrast": "calibrated-minus-direct",
+      "difference_mean": 0.12994835018705464,
+      "ci95": [
+        0.11303314072104247,
+        0.14591992008363494
+      ],
+      "wins": 0,
+      "n": 12
+    },
+    {
+      "depth": 2,
+      "phase_bits": 3,
+      "contrast": "direct-minus-signed4",
+      "difference_mean": -0.017091465924320166,
+      "ci95": [
+        -0.02927202925872822,
+        -0.006045526472208009
+      ],
+      "wins": 9,
+      "n": 12
+    },
+    {
+      "depth": 2,
+      "phase_bits": 3,
+      "contrast": "calibrated-minus-direct",
+      "difference_mean": 0.013441277727562729,
+      "ci95": [
+        0.002536541919454698,
+        0.019547582151037295
+      ],
+      "wins": 1,
+      "n": 12
+    },
+    {
+      "depth": 2,
+      "phase_bits": 4,
+      "contrast": "direct-minus-signed4",
+      "difference_mean": -0.03472865008062056,
+      "ci95": [
+        -0.05185486991665243,
+        -0.01933650626606041
+      ],
+      "wins": 12,
+      "n": 12
+    },
+    {
+      "depth": 2,
+      "phase_bits": 4,
+      "contrast": "calibrated-minus-direct",
+      "difference_mean": -0.0007339761913132178,
+      "ci95": [
+        -0.0035797801370646585,
+        0.001178940743617544
+      ],
+      "wins": 4,
+      "n": 12
+    },
+    {
+      "depth": 2,
+      "phase_bits": 5,
+      "contrast": "direct-minus-signed4",
+      "difference_mean": -0.06048219123860981,
+      "ci95": [
+        -0.06763525474065166,
+        -0.05268747495237916
+      ],
+      "wins": 12,
+      "n": 12
+    },
+    {
+      "depth": 2,
+      "phase_bits": 5,
+      "contrast": "calibrated-minus-direct",
+      "difference_mean": -0.00032586008975210036,
+      "ci95": [
+        -0.0008245757311570881,
+        -2.0542212940966123e-06
+      ],
+      "wins": 6,
+      "n": 12
+    },
+    {
+      "depth": 4,
+      "phase_bits": 2,
+      "contrast": "direct-minus-signed4",
+      "difference_mean": -0.01024953335418762,
+      "ci95": [
+        -0.020852157414650102,
+        0.0009046354970111877
+      ],
+      "wins": 3,
+      "n": 6
+    },
+    {
+      "depth": 4,
+      "phase_bits": 2,
+      "contrast": "calibrated-minus-direct",
+      "difference_mean": 0.12444234770041539,
+      "ci95": [
+        0.09211015264065225,
+        0.15398099748376748
+      ],
+      "wins": 0,
+      "n": 6
+    },
+    {
+      "depth": 4,
+      "phase_bits": 3,
+      "contrast": "direct-minus-signed4",
+      "difference_mean": -0.009811319326122654,
+      "ci95": [
+        -0.023804871779493735,
+        -0.00041809079201189647
+      ],
+      "wins": 4,
+      "n": 6
+    },
+    {
+      "depth": 4,
+      "phase_bits": 3,
+      "contrast": "calibrated-minus-direct",
+      "difference_mean": 0.008465347154511636,
+      "ci95": [
+        -0.009533093262045255,
+        0.018471294556593628
+      ],
+      "wins": 1,
+      "n": 6
+    },
+    {
+      "depth": 4,
+      "phase_bits": 4,
+      "contrast": "direct-minus-signed4",
+      "difference_mean": -0.021902202567187737,
+      "ci95": [
+        -0.03699819904771539,
+        -0.008192041931793098
+      ],
+      "wins": 6,
+      "n": 6
+    },
+    {
+      "depth": 4,
+      "phase_bits": 4,
+      "contrast": "calibrated-minus-direct",
+      "difference_mean": -0.0009365339751212816,
+      "ci95": [
+        -0.005872328815048683,
+        0.0015628730727724274
+      ],
+      "wins": 1,
+      "n": 6
+    },
+    {
+      "depth": 4,
+      "phase_bits": 5,
+      "contrast": "direct-minus-signed4",
+      "difference_mean": -0.05041219548346717,
+      "ci95": [
+        -0.06246364726519432,
+        -0.03761664903600825
+      ],
+      "wins": 6,
+      "n": 6
+    },
+    {
+      "depth": 4,
+      "phase_bits": 5,
+      "contrast": "calibrated-minus-direct",
+      "difference_mean": -0.000514791879860624,
+      "ci95": [
+        -0.001438420782888811,
+        -7.394007600108309e-06
+      ],
+      "wins": 5,
+      "n": 6
+    }
+  ],
+  "reuse_m5_k16": {
+    "fresh": 0.15801490447029656,
+    "same_work": 1.2206232457100628
+  }
+}

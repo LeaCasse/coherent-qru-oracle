@@ -1,0 +1,53 @@
+{
+  "depth_two_seeds": [
+    600,
+    601,
+    602,
+    603,
+    604,
+    605
+  ],
+  "depth_four_seeds": [
+    700,
+    701,
+    702
+  ],
+  "inputs": [
+    -0.7,
+    0.9
+  ],
+  "axis": [
+    0.3,
+    -0.4,
+    0.8660254037844386
+  ],
+  "phase_bits": [
+    2,
+    3,
+    4
+  ],
+  "repetitions": [
+    2,
+    4,
+    8
+  ],
+  "protocols": [
+    "repeated_z",
+    "echo",
+    "alternating",
+    "input_mixed_echo"
+  ],
+  "modes": [
+    "shared",
+    "fresh"
+  ],
+  "window": "repository sine",
+  "table": "unclipped analytic calibration",
+  "diamond_subset": "depth=2,seeds=600..602,m=2 or 4,k=2 or 8; all protocols and modes",
+  "notes": [
+    "seed 600 used for implementation verification; seeds 601..605 and 700..702 new",
+    "remaining cases report normalized Choi trace norm, never relabelled diamond",
+    "floating-point SDP witnesses; not interval certificates",
+    "ideal gates; frozen random models; no external-task advantage"
+  ]
+}

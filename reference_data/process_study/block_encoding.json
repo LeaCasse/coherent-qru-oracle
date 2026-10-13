@@ -1,0 +1,27 @@
+{
+  "implementation": "B=-A\u2020 Z_system A",
+  "zero_system_block": "diag(s_x)",
+  "target_hamiltonian": "diag(s_x) tensor Z_target",
+  "circuits": [
+    {
+      "depth": 2,
+      "seed": 610,
+      "a_calls_per_block": 2,
+      "qubits": 2,
+      "cx_count": 12,
+      "score_block_error": 2.7755575615628914e-16,
+      "hermiticity_error": 5.551115123125783e-16
+    },
+    {
+      "depth": 4,
+      "seed": 710,
+      "a_calls_per_block": 2,
+      "qubits": 2,
+      "cx_count": 20,
+      "score_block_error": 7.284929877754866e-16,
+      "hermiticity_error": 5.898059818321144e-16
+    }
+  ],
+  "status": "block encoding verified; polynomial approximation verified; full QSP/OAA circuit absent",
+  "caveat": "degrees are not compiled CX counts or complete QSP query counts"
+}

@@ -1,0 +1,26 @@
+{
+  "seeds": [
+    400,
+    401,
+    402,
+    403,
+    404,
+    405
+  ],
+  "phase_bits": [
+    3,
+    5
+  ],
+  "repetitions": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "scope": "Same cohort reused; identical consecutive Z controls; no intervening gates; no noise",
+  "fresh": "Gram elementwise power; discard and freshly initialize workspace each step",
+  "same_work": "Dilation power E\u2020 V(k gamma) E, trace work only at end",
+  "source_sha256": "f9ab521bfaf1e1a1a4e0a55bea4303c9bca54af86d283d3214b6180d87f546aa"
+}
