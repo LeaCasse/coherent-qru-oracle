@@ -239,7 +239,8 @@ def run():
                 write_rows("resources.csv", resources)
                 print(f"Resource compilation L={depth} m={m} {window}", flush=True)
     config = {
-        "date": "2026-10-10",
+        "protocol_date": "2026-10-10",
+        "execution_date": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat(),
         "input_xs": XS.tolist(),
         "axis": AXIS.tolist(),
         "gamma": GAMMA,

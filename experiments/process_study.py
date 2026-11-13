@@ -62,7 +62,7 @@ def run():
         "notes": [
             (
                 "seed 600 used for implementation verification; "
-                "seeds 601..605 and 700..702 new"
+                "seeds 601..605 and 700..702 define the model cohort"
             ),
             (
                 "remaining cases report normalized Choi trace norm, "

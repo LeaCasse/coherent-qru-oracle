@@ -87,7 +87,7 @@ def run():
                         [float(r["diamond_upper"]) for r in selected],
                         marker=marker,color=color,label=label)
     axes[0].plot([0,1.7],[0,1.7],"--",color=GRAY,lw=1)
-    axes[0].set(xlabel=r"Sector bound $2p_1$",ylabel="Diamond fibre sensitivity",
+    axes[0].set(xlabel=r"Sector quantity $2p_1$",ylabel="Diamond fibre sensitivity",
                 xlim=(-.04,1.7),ylim=(-.02,.7),title="(a) contract boundary")
     axes[0].legend(fontsize=8);axes[0].grid(alpha=.15)
     chosen=sorted([r for r in gauge if r["seed"]=="603" and r["protocol"]=="input_mixed_echo"],
@@ -96,13 +96,13 @@ def run():
                  [0]+[float(r["diamond_lower"]) for r in chosen],
                  "o-",color=OCHRE,label="physical lower witness")
     axes[1].axhline(float(chosen[0]["sector_bound"]),color=NAVY,ls="--",
-                   label=r"$2p_1$ (not applicable)")
+                   label=r"$2p_1$ outside contract")
     axes[1].set(xlabel=r"Branch fibre phase $\phi$",ylabel="Sensitivity",
                 title="(b) seed 603, input mixed")
     axes[1].legend(fontsize=8);axes[1].grid(alpha=.15)
     save(fig,"04_fibre")
     noise=read("process_study","gate_noise.csv")
-    fig,axes=plt.subplots(1,2,figsize=(8.4,3.1))
+    fig,axes=plt.subplots(1,3,figsize=(10.5,3.1))
     for kind,color in [("unfused",OCHRE),("fused",NAVY)]:
         means=[]
         for p in [1e-5,1e-4,1e-3]:
@@ -110,11 +110,14 @@ def run():
                     if r["implementation"]==kind and float(r["cx_depolarizing_parameter"])==p]
             means.append(np.mean(values))
         axes[0].plot([1e-5,1e-4,1e-3],means,"s--" if kind=="unfused" else "o-",label=kind,color=color)
+        total=[np.mean([float(r['choi_trace_norm']) for r in noise if r['implementation']==kind and float(r['cx_depolarizing_parameter'])==p]) for p in [0,1e-5,1e-4,1e-3]]
+        axes[2].plot([0,1e-5,1e-4,1e-3],total,"s--" if kind=="unfused" else "o-",color=color,label=kind)
         count=int(next(r["cx_count"] for r in noise if r["implementation"]==kind))
         axes[1].bar(kind,count,color=color,edgecolor=CHARCOAL,linewidth=.8,hatch="///" if kind=="unfused" else "..");axes[1].text(kind,count+25,str(count),ha="center")
     axes[0].set(xscale="log",xlabel="CX depolarizing parameter",ylabel="Choi perturbation")
     axes[0].legend(fontsize=8);axes[0].grid(alpha=.15)
     axes[1].set(ylabel="Compiled CX",ylim=(0,1600))
+    axes[2].set(xscale="symlog",linthresh=1e-5,xlabel="CX depolarizing parameter",ylabel="Total Choi error");axes[2].set_xlim(-1e-6,1.15e-3);axes[2].set_xticks([0,1e-5,1e-4,1e-3],labels=["0",r"$10^{-5}$",r"$10^{-4}$",r"$10^{-3}$"]);axes[2].grid(alpha=.15)
     save(fig,"05_noise")
     fig,ax=plt.subplots(figsize=(6.5,3.0))
     for depth,color in [("2",NAVY),("4",OCHRE)]:
@@ -172,7 +175,7 @@ def run():
         ax.plot([.001,2],[.001,2],"--",color=GRAY,lw=1)
         ax.set_xscale("log");ax.set_yscale("log");ax.grid(alpha=.15)
     axes[0].set(xlabel=r"Bound $2\gamma^2\mu$",ylabel="Diamond control error")
-    axes[1].set(xlabel=r"Sector bound $2p_1$",ylabel="Diamond fibre sensitivity")
+    axes[1].set(xlabel=r"Sector quantity $2p_1$",ylabel="Diamond fibre sensitivity")
     axes[0].legend(fontsize=8)
     save(fig,"A_calibration")
     reuse=read("direct_control","reuse.csv")
@@ -192,7 +195,7 @@ def run():
         ax.grid(alpha=.15)
     axes[0].legend(fontsize=8)
     save(fig,"A_reuse")
-    print("Redrew nine numerical figures from unchanged source data.")
+    print("Redrew nine numerical figures from campaign tables.")
 
 
 if __name__=="__main__":

@@ -1,6 +1,8 @@
 # Coherent QRU score oracles
 
-For the Paper "When coherent score oracles compose: workspace memory and quaternion covariance" - Léa Cassé, Albert Bifet, Bernhard Pfahringer
+Code for *Composing coherent score oracles: workspace contracts and quaternion covariance*.
+
+Python 3.12:
 
 ```bash
 python -m pip install -r requirements-lock.txt
@@ -10,7 +12,7 @@ python reproduce.py figures
 python reproduce.py notebook
 ```
 
-Full recalculation and comparison:
+Full recalculation:
 
 ```bash
 python reproduce.py experiments
@@ -18,11 +20,12 @@ python reproduce.py compare
 python reproduce.py figures --data outputs/results
 ```
 
-Use `experiments --study process_study` to run one campaign. Results are saved during the campaigns, under `outputs/results/`. Numerical SDP witnesses may vary within the comparison tolerance.
+Run one campaign with `python reproduce.py experiments --study renewal_study`.
+Results are saved during campaigns in `outputs/results/`. Figures use archived data by default.
 
-- `src/`: quantum model, estimators, channels and structural circuits
-- `experiments/`: the eight numerical campaigns used by the papers
-- `figures/`: generators for all 20 figures, including the compact subset
-- `reference_data/`: immutable paper tables and campaign specifications
-- `notebooks/reproduce_paper.ipynb`: executed notebook
-- `tests/`: channel, circuit and mathematical checks
+- `src/`: QRUs, coherent channels, circuits and workspace contracts
+- `experiments/`: nine campaigns
+- `figures/`: generators for all 21 figures
+- `reference_data/`: paper results and protocol specifications
+- `notebooks/reproduce_paper.ipynb`: worked reproduction
+- `tests/`: mathematical and circuit checks

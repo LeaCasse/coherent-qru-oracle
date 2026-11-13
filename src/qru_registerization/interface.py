@@ -438,7 +438,9 @@ def build_qae_interface(
     target_count: int = 1,
     uncompute_signed: bool = True,
 ) -> QuantumCircuit:
-    """Build QAE, finite decoding, signed Pauli control, and workspace cleanup."""
+    """Build QAE and signed control with inverse decoding of the signed word.
+
+    The phase-estimator workspace remains available to the caller."""
     layout = InterfaceLayout(phase_bits, magnitude_bits, target_count)
     circuit = QuantumCircuit(layout.size, name=f"qae_{method}_interface")
     circuit.compose(

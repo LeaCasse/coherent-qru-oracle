@@ -1,4 +1,4 @@
-"""Rebuild three appendix figures from unchanged archived CSV tables."""
+"""Generate appendix figures from campaign tables."""
 import os
 from pathlib import Path
 import csv

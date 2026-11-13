@@ -1,4 +1,4 @@
-"""Redraw workspace contracts without changing their operational content."""
+"""Workspace contracts and the input-preserving fusion rule."""
 import os
 from pathlib import Path
 from paper_theme import export
@@ -26,10 +26,11 @@ def build():
   ax.plot([3,3],[y-3,y+3],color=col,lw=2.5,solid_capstyle='round')
   txt(5,y,label,11,col,'bold','left')
  xs=[29,43,57,71,85]
- for y,col in [(39,OCHRE),(24,NAVY)]:
+ for y,col in [(24,NAVY)]:
   for a,b in zip(xs[:-1],xs[1:]):arrow((a+5.4,y),(b-5.4,y),col)
- for x,s in zip(xs,[r'$E_X$',r'$V_1(g_Y)$',r'$R$',r'$V_2(g_Y)$',r'$E_X^\dagger$']):box(x,39,s,OCHRE)
- arrow((90.5,39),(93,39),OCHRE);txt(95.5,39,'trace',9.5)
+ for x,s in zip([34,57,80],[r'$W_1$',r'$R$',r'$W_2$']):box(x,39,s,OCHRE)
+ arrow((39.5,39),(51.5,39),OCHRE);arrow((62.5,39),(74.5,39),OCHRE)
+ arrow((85.5,39),(93,39),OCHRE);txt(95.5,39,'trace',9.5)
  for x,s in zip(xs,[r'$W_1$','trace\n+ renew',r'$R$',r'$W_2$','trace']):box(x,24,s,NAVY,s.startswith('trace'))
  box(29,9,r'$E_X$',TEAL);box(57,9,r'$F_X(g_Y)$',TEAL,w=18);box(85,9,r'$E_X^\dagger$',TEAL)
  arrow((34.5,9),(47.5,9),TEAL);arrow((66.5,9),(79.5,9),TEAL)

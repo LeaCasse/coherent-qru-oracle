@@ -1,0 +1,43 @@
+{
+  "depth_seeds": {
+    "2": [
+      600,
+      601,
+      602,
+      603,
+      604,
+      605
+    ],
+    "4": [
+      700,
+      701,
+      702
+    ]
+  },
+  "phase_bits": [
+    3,
+    4
+  ],
+  "protocols": [
+    "repeated",
+    "alternating",
+    "input_mixed"
+  ],
+  "inputs": [
+    -0.7,
+    0.9
+  ],
+  "axis": [
+    0.3,
+    -0.4,
+    0.8660254037844386
+  ],
+  "selection": "minimum clean-block certificate within structural-call budget",
+  "search": "all 32 contiguous partitions of six calls",
+  "cost": "structural A/A-dagger calls with permitted estimator fusion",
+  "diamond_subset": "seed 600, m=3, all protocols and selected policies",
+  "source_sha256": {
+    "experiments/renewal_study.py": "8bdc6148e02496de31e4c5d0d547483f5573746437ab5d4ba44fc1ac3675913c",
+    "src/qru_registerization/memory_contract.py": "ba8afda674861fad2ee05901a42c11b96d9c653bf76b86f8b828a27e061f7408"
+  }
+}

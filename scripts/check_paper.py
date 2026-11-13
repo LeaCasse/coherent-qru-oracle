@@ -37,7 +37,13 @@ def summarize(data=None):
  assert resource['signed4']=={'qubits':15,'cx':11672}
  assert resource['multiplex4']=={'qubits':10,'cx':10726}
  noise_summary={kind:float(np.mean([float(x['noise_increment_trace_norm']) for x in noise if x['implementation']==kind and float(x['cx_depolarizing_parameter'])==1e-4])) for kind in ['unfused','fused']}
- return {'precision_m5_depth2':precision,'memory_m4_k8':memory,'fibre_counterexample':{k:float(witness[k]) for k in ['diamond_upper','sector_bound']},'resources_m5':resource,'noise_increment_p1e4':noise_summary}
+ renew=read('renewal_study','policies.csv',data)
+ assert len(renew)==342
+ selected=[x for x in renew if x['depth']=='2' and x['phase_bits']=='4' and x['protocol']=='alternating' and x['policy']=='budget6']
+ assert len(selected)==6 and all(x['segments']=='5' for x in selected)
+ renewal={key:float(number(selected,key).mean()) for key in ['choi_error','certificate','readout_error','a_calls']}
+ assert abs(renewal['choi_error']-.03502)<5e-6
+ return {'renewal_m4_depth2':renewal,'precision_m5_depth2' :precision,'memory_m4_k8':memory,'fibre_counterexample':{k:float(witness[k]) for k in ['diamond_upper','sector_bound']},'resources_m5':resource,'noise_increment_p1e4':noise_summary}
 def compare():
  """Keys, row order and all numerical columns checked. SDP tolerance is explicit."""
  results=[]
@@ -58,6 +64,15 @@ def compare():
      assert np.isclose(av,bv,atol=tolerance,rtol=1e-7),(rel,i,k,av,bv)
     except ValueError:assert v==b[k],(rel,i,k,v,b[k])
   results.append({'table':str(rel),'rows':len(old),'max_numeric_difference':max_error})
+ for ref in sorted((ROOT/'reference_data').rglob('*.npz')):
+  rel=ref.relative_to(ROOT/'reference_data'); fresh=ROOT/'outputs/results'/rel
+  a,b=np.load(ref),np.load(fresh)
+  assert set(a.files)==set(b.files)
+  for key in a.files:np.testing.assert_allclose(a[key],b[key],atol=1e-10,rtol=1e-10)
+  results.append({'array_archive':str(rel),'arrays':len(a.files)})
+ rel=Path('process_study/block_encoding.json')
+ assert json.loads((ROOT/'reference_data'/rel).read_text())==json.loads((ROOT/'outputs/results'/rel).read_text())
+ results.append({'structured_result':str(rel),'identical':True})
  return results
 def main():
  manifest=json.loads((ROOT/'reference_data/manifest.json').read_text())
