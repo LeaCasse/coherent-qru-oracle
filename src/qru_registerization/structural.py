@@ -55,10 +55,16 @@ def affine_estimator(
     fibre0=0.0,
     fibre_step=0.0,
     amplitudes=None,
+    query_implementation="controlled_preparation",
+    initialization="prepared",
 ):
     if phase_bits < 1:
         raise ValueError("phase_bits must be positive")
     a = affine_input_oracle(params, input_bits, x0, step, axis, fibre0, fibre_step)
+    if query_implementation not in ("controlled_preparation", "reflections"):
+        raise ValueError("query implementation must be controlled_preparation or reflections")
+    if initialization not in ("prepared", "zero"):
+        raise ValueError("initialization must be prepared or zero")
     grover = QuantumCircuit(input_bits + 1, name="Q_X")
     grover.z(input_bits)
     grover.compose(a.inverse(), inplace=True)
@@ -71,7 +77,8 @@ def affine_estimator(
     phase = list(range(input_bits, system))
     extra = phase_taper_work_qubits(taper) if amplitudes is None else 0
     e = QuantumCircuit(system + 1 + extra, name="E_X")
-    e.compose(a, qubits=[*range(input_bits), system], inplace=True)
+    if initialization == "prepared":
+        e.compose(a, qubits=[*range(input_bits), system], inplace=True)
     if amplitudes is None:
         e.compose(
             build_phase_taper_preparation(phase_bits, taper),
@@ -85,7 +92,14 @@ def affine_estimator(
     controlled = grover.to_gate().control(1)
     for j in range(phase_bits):
         for _ in range(2**j):
-            e.append(controlled, [phase[j], *range(input_bits), system])
+            if query_implementation == "controlled_preparation":
+                e.append(controlled, [phase[j], *range(input_bits), system])
+            else:
+                # Q=A Z A† Z. Only reflections need a phase-bit control.
+                e.cz(phase[j], system)
+                e.compose(a.inverse(), qubits=[*range(input_bits), system], inplace=True)
+                e.cz(phase[j], system)
+                e.compose(a, qubits=[*range(input_bits), system], inplace=True)
     e.append(QFTGate(phase_bits).inverse(), phase)
     return e
 
@@ -104,6 +118,8 @@ def affine_interface(
     fibre0=0.0,
     fibre_step=0.0,
     amplitudes=None,
+    query_implementation="controlled_preparation",
+    initialization="prepared",
 ):
     e = affine_estimator(
         params,
@@ -116,6 +132,8 @@ def affine_interface(
         fibre0,
         fibre_step,
         amplitudes,
+        query_implementation,
+        initialization,
     )
     sign = e.num_qubits
     magnitude = list(range(sign + 1, sign + 1 + magnitude_bits))
@@ -152,6 +170,8 @@ def affine_direct_interface(
     fibre_step=0.0,
     amplitudes=None,
     control_scores=None,
+    query_implementation="controlled_preparation",
+    initialization="prepared",
 ):
     """E V E† with a phase-word multiplexor, without a signed register.
 
@@ -181,6 +201,8 @@ def affine_direct_interface(
         fibre0,
         fibre_step,
         amplitudes,
+        query_implementation,
+        initialization,
     )
     target = e.num_qubits
     circuit = QuantumCircuit(target + 1, name="direct_phase_control")
@@ -197,3 +219,12 @@ def affine_direct_interface(
         "signed": [],
         "work": list(range(input_bits, target)),
     }
+
+
+def optimized_score_service(*args, **kwargs):
+    """Revised numeric service; the older APIs keep archived defaults.
+
+    prepared keeps the paper's dilation; zero is the fibre-invariant variant.
+    """
+    kwargs.setdefault("query_implementation", "reflections")
+    return affine_direct_interface(*args, **kwargs)

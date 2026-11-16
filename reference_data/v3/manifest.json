@@ -1,0 +1,33 @@
+{
+  "sha256": {
+    "amortization.csv": "bfdd1e77384068a5c9b356ec5ccfb54f852b6ea71c14bb55e5f2614931fbe6c6",
+    "amortization_resources.csv": "5c3033186a712c43f66494626adaa9b6b27fe6ef50af382637759406aab0a871",
+    "development/amortization_development_pilot.csv": "3edc2455d499bce78ba73aeeae9767da5debb00deb5c1cbe126de6f24d5ed437",
+    "development/amortization_resources_initial_r1.csv": "3dd95787aa59f95573e6f87b5d4fd83609c1cf1fbc27c3b4278cedfaaab552a9",
+    "development/inverse_development_pilot.csv": "8b6dfda25c86ba509be6375db4616a5bb603bd1d2426b8f603bf450e623dba15",
+    "development/protocol_amortization_development_pilot.json": "166f1b071d9446a82f85fd7c261e0083f106f33d6bccc6e08700c4c64efb6cf1",
+    "development/protocol_amortization_resources_initial_r1.json": "ca2e694846c7729e3b4874927df0d4f970ad01584724e31c0bcf4df779dd77e2",
+    "development/protocol_inverse_development_pilot.json": "166f1b071d9446a82f85fd7c261e0083f106f33d6bccc6e08700c4c64efb6cf1",
+    "direct_memory.csv": "1026dcc828c9ef599f8f2ded91bbddf39742b5aee3ac951f174c9c722bab9b70",
+    "direct_memory_validation.csv": "be162f37610f6bb7cc547d3b81138bcacaf54dd8c45d639ec51024ca1e5ff56f",
+    "environment.json": "88676e68fd971d9f3cb15aaa0d2e0e37a0f32cd3dd5552d1379ac1216d4e93e3",
+    "fibre.csv": "aa17b6c399f13007095c19f3b0a946e4a9343b740b55914688225ad867e1da37",
+    "gqsp_synthesis.json": "8af2b5bf5740671ea18b2676a382bed9c3aa52944a78cbfd191274b97e2e8d68",
+    "inverse.csv": "149ac26335bacd7aa745e4d36b20fbaf6283f29c7323a03ddeedc733775504a4",
+    "noise/gate_noise.csv": "3c9d2cbcae3821416708e7e3ec3f063a37a1f04f91234d2be5b51852aa1a2e8b",
+    "noise/noise_protocol.json": "02b93c013156923c0e945c9d6b29c3af05fce586d014a5a0fb36240b3b466f9c",
+    "precision.csv": "200662bbe7650121556556a6826c6444c31ba9344371d4460951c663fd1bdfc0",
+    "protocol_amortization.json": "804dd759b7c7f9e6c4ee23a8ccdcf367a6fa0a3363f8c311f032834638228d21",
+    "protocol_amortization_resources.json": "31e9ebf93b61c90b4da319aa7000b94d770b3168daeef9948f19015ddecd0c54",
+    "protocol_direct_memory.json": "9ce10f5b1d9de37601ee3924d53ac68bbb45da60afbefd5cbd22d6159b52bdf3",
+    "protocol_direct_memory_validation.json": "e955accd3b0c8a1d683c81ea4ba1d927a60f91db223cafea389599d6a4f0d2a6",
+    "protocol_fibre.json": "166f1b071d9446a82f85fd7c261e0083f106f33d6bccc6e08700c4c64efb6cf1",
+    "protocol_inverse.json": "804dd759b7c7f9e6c4ee23a8ccdcf367a6fa0a3363f8c311f032834638228d21",
+    "protocol_renewal.json": "b89fea874a2c901516be42cdc0fe7c403b1e4eb5c1f1aaa77a15dac4a824c951",
+    "protocol_resources.json": "166f1b071d9446a82f85fd7c261e0083f106f33d6bccc6e08700c4c64efb6cf1",
+    "renewal_scaling.csv": "ea15406cac9b931dcf405af82e843f57923c39c0e82e875c90171537c570566c",
+    "renewal_validation.csv": "5020cdc0facabd6b939888f6ec3390fb7a259589156b04b36fbaab2e7b57981c",
+    "renewal_validation.json": "0cad4afefa6605f6b7fdd8d5521f53d4ecf3e06b346f2ee1821fbe4a135df9a9",
+    "resources.csv": "87bb627d0ee373908f86948d2cadbe0cab367b78bc57abc1e285f19a5660eb10"
+  }
+}

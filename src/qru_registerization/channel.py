@@ -46,7 +46,7 @@ def _preparation(amplitudes):
     )
 
 
-def estimator_matrix(amplitude, amplitudes):
+def estimator_matrix(amplitude, amplitudes, initialization="prepared"):
     """Unitary E=(F_N ⊗ I) sum_n |n><n|⊗Q^n (P_a ⊗ A)."""
     size = len(amplitudes)
     powers = np.empty((size, 2, 2), complex)
@@ -54,7 +54,10 @@ def estimator_matrix(amplitude, amplitudes):
     q = amplitude_grover_operator(amplitude)
     for n in range(1, size):
         powers[n] = q @ powers[n - 1]
-    before = np.kron(_preparation(amplitudes), amplitude).reshape(size, 2, 2 * size)
+    if initialization not in ("prepared", "zero"):
+        raise ValueError("initialization must be prepared or zero")
+    initial = amplitude if initialization == "prepared" else np.eye(2)
+    before = np.kron(_preparation(amplitudes), initial).reshape(size, 2, 2 * size)
     controlled = np.einsum("nij,njk->nik", powers, before)
     return (np.fft.fft(controlled, axis=0) / np.sqrt(size)).reshape(2 * size, 2 * size)
 

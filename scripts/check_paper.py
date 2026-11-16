@@ -48,6 +48,7 @@ def compare():
  """Keys, row order and all numerical columns checked. SDP tolerance is explicit."""
  results=[]
  for ref in sorted((ROOT/'reference_data').rglob('*.csv')):
+  if ref.relative_to(ROOT/'reference_data').parts[0]=='v3':continue
   rel=ref.relative_to(ROOT/'reference_data');new=ROOT/'outputs/results'/rel
   assert new.exists(),f'Missing {new}. Run experiments first.'
   old=list(csv.DictReader(ref.open()));fresh=list(csv.DictReader(new.open()))

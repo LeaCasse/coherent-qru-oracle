@@ -1,0 +1,29 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "package_versions": {
+    "numpy": "2.5.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.10.8",
+    "qiskit": "1.4.6",
+    "qiskit-aer": "0.17.2",
+    "cvxpy": "1.9.3",
+    "clarabel": "0.11.1",
+    "pytest": "9.2.0",
+    "nbformat": "not installed; not needed by executed revision stages"
+  },
+  "BLAS_threads": 1,
+  "compiler_basis": [
+    "rz",
+    "sx",
+    "x",
+    "cx"
+  ],
+  "compiler_seed": 17,
+  "compiler_levels": [
+    0,
+    3
+  ],
+  "coupling_map": null,
+  "note": "Actual execution environment; original requirements-lock.txt is retained unchanged."
+}

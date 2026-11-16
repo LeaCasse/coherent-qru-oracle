@@ -87,6 +87,7 @@ def process_channel(
     calibrated=True,
     mode="shared",
     fibre=None,
+    initialization="prepared",
 ):
     """pulses are (unit Pauli-axis, angle); gates act between adjacent uses.
 
@@ -131,6 +132,7 @@ def process_channel(
                 axis,
             ),
             phase_taper_amplitudes(phase_bits, "sine"),
+            initialization=initialization,
         )
         for x, phi in zip(xs, phases, strict=True)
     ]
@@ -229,7 +231,7 @@ def _diamond_problem(d):
     return j, rho, primal, y, dual
 
 
-def diamond_choi(delta):
+def diamond_choi(delta,solver=None):
     """Hermiticity-preserving diamond SDP; full norm, floating-point witnesses."""
     delta = np.asarray(delta, complex)
     d = round(np.sqrt(len(delta)))
@@ -239,14 +241,12 @@ def diamond_choi(delta):
         return {"diamond_lower": 0.0, "diamond_upper": 0.0, "sdp_gap": 0.0}
     parameter, rho, primal, y, dual = _diamond_problem(d)
     parameter.value = (delta + delta.conj().T) / 2
+    chosen=("CLARABEL" if d<=4 else "SCS") if solver is None else solver
     for problem in [primal, dual]:
-        problem.solve(
-            solver="CLARABEL",
-            tol_gap_abs=1e-8,
-            tol_feas=1e-8,
-            tol_gap_rel=1e-8,
-            max_iter=150,
-        )
+        if chosen=="SCS":
+            problem.solve(solver="SCS",eps=1e-7,max_iters=20000,time_limit_secs=30)
+        else:
+            problem.solve(solver=chosen,tol_gap_abs=1e-8,tol_feas=1e-8,tol_gap_rel=1e-8,max_iter=150)
         if problem.status not in ("optimal", "optimal_inaccurate"):
             raise RuntimeError(f"Diamond SDP failed: {problem.status}")
     eigen, vectors = np.linalg.eigh((rho.value + rho.value.conj().T) / 2)

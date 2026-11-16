@@ -1,0 +1,345 @@
+{
+  "status": "declared before executing the new main campaigns; not an external preregistration",
+  "development_seeds": [
+    400,
+    603,
+    604
+  ],
+  "evaluation_models": [
+    [
+      2,
+      900
+    ],
+    [
+      2,
+      901
+    ],
+    [
+      2,
+      902
+    ],
+    [
+      2,
+      903
+    ],
+    [
+      2,
+      904
+    ],
+    [
+      2,
+      905
+    ],
+    [
+      4,
+      1000
+    ],
+    [
+      4,
+      1001
+    ],
+    [
+      4,
+      1002
+    ]
+  ],
+  "precision": {
+    "gamma": [
+      0.2,
+      0.8,
+      1.6
+    ],
+    "channel_tolerance": [
+      0.05,
+      0.01,
+      0.002
+    ],
+    "input_branches": 4,
+    "extra_literal_contract": {
+      "channel_tolerance": 0.01,
+      "literal_tolerance": 0.01
+    }
+  },
+  "fibre": {
+    "phase_bits": [
+      2,
+      3,
+      4
+    ],
+    "uses": [
+      2,
+      4,
+      8
+    ],
+    "protocols": [
+      "repeated",
+      "echo",
+      "alternating",
+      "mixed"
+    ],
+    "phase_change": [
+      0.0,
+      2.1
+    ],
+    "initializations": [
+      "prepared",
+      "zero"
+    ]
+  },
+  "scaling": {
+    "uses": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "branches": [
+      2,
+      16
+    ],
+    "phase_bits": [
+      3,
+      5
+    ],
+    "target_dimensions": [
+      2,
+      4
+    ],
+    "angular_budget_regimes": [
+      "fixed_total",
+      "fixed_per_call"
+    ]
+  },
+  "inverse": {
+    "models": [
+      [
+        2,
+        900
+      ],
+      [
+        2,
+        901
+      ],
+      [
+        2,
+        902
+      ],
+      [
+        4,
+        1000
+      ],
+      [
+        4,
+        1001
+      ]
+    ],
+    "phase_bits": 3,
+    "perturbation_generator": "Pauli X on the least-significant phase-word qubit after the estimator",
+    "uses": [
+      2,
+      8
+    ],
+    "delta": [
+      0.0,
+      0.0001,
+      0.001,
+      0.01,
+      0.05
+    ],
+    "error_models": [
+      "paired",
+      "mismatch",
+      "drift"
+    ],
+    "protocols": [
+      "echo",
+      "alternating"
+    ],
+    "policies": [
+      "shared",
+      "fresh"
+    ]
+  },
+  "amortization": {
+    "models": [
+      [
+        2,
+        900
+      ],
+      [
+        2,
+        901
+      ],
+      [
+        4,
+        1000
+      ]
+    ],
+    "uses": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "intervention_angle_budget": 0.4,
+    "total_angles": [
+      0.8,
+      2.4
+    ],
+    "channel_tolerance": 0.01,
+    "comparison": "one shared numeric estimate versus modular per-call direct GQSP with fresh work; not globally optimized QSP"
+  },
+  "amortization_resources": {
+    "depths": [
+      2,
+      4,
+      16
+    ],
+    "uses": [
+      2,
+      8,
+      32
+    ],
+    "total_angle": 0.8,
+    "tolerance": 0.01,
+    "intervention_angle_budget": 0.4,
+    "input_bits": [
+      1,
+      2
+    ],
+    "status": "exploratory input-dimension ablation after observing small-space compilation compression at r=1"
+  },
+  "direct_memory": {
+    "status": "mechanistic extension declared after single-use and amortization campaigns",
+    "models": [
+      [
+        2,
+        900
+      ],
+      [
+        2,
+        901
+      ],
+      [
+        4,
+        1000
+      ]
+    ],
+    "uses": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "total_angles": [
+      0.8,
+      2.4
+    ],
+    "protocols": [
+      "repeated",
+      "alternating",
+      "echo",
+      "mixed"
+    ],
+    "policies": [
+      "fresh",
+      "shared",
+      "shared_phase_pi"
+    ],
+    "phase_kick": "Pauli Z on the GQSP output ancilla after every call, including the last",
+    "purpose": "same isolated channel and local contracts, different coherent reuse; not an adaptive phase optimization"
+  },
+  "direct_memory_validation": {
+    "status": "new-seed validation declared after the direct-memory discovery",
+    "models": [
+      [
+        2,
+        1500
+      ],
+      [
+        2,
+        1501
+      ],
+      [
+        2,
+        1502
+      ],
+      [
+        2,
+        1503
+      ],
+      [
+        4,
+        1600
+      ],
+      [
+        4,
+        1601
+      ],
+      [
+        4,
+        1602
+      ]
+    ],
+    "uses": [
+      16,
+      32
+    ],
+    "total_angles": [
+      0.8,
+      1.2,
+      2.4
+    ],
+    "protocols": [
+      "repeated",
+      "alternating",
+      "mixed"
+    ],
+    "policies": [
+      "fresh",
+      "shared",
+      "shared_phase_pi"
+    ]
+  },
+  "metrics": {
+    "diamond": "full norm, no factor one half",
+    "choi": "normalized trace-norm witness; never relabelled diamond",
+    "literal": "operator norm of actual zero-work isometry minus chosen clean ideal isometry"
+  },
+  "compilation": {
+    "basis": [
+      "rz",
+      "sx",
+      "x",
+      "cx"
+    ],
+    "seed": 17,
+    "main_optimization_level": 0,
+    "selected_level": 3,
+    "coupling_map": null
+  },
+  "scope": "single-qubit QRU scores; independent target, ideal gates except explicit inverse perturbations; no advantage claim over classical reversible score computation",
+  "selection": "all models and policies retained; synthesis failures stop the campaign rather than silently dropping a case",
+  "source_sha256": {
+    "src/qru_registerization/protocol_circuits.py": "1dfb771b577085f5a2d7a322c3ee551c2c39bee9608199be037a5215de793429",
+    "src/qru_registerization/dilation_tools.py": "2a6001d3d5b3841f264288e7ef0b3344eb9c2b96d157341bbb97512b1727dc50",
+    "src/qru_registerization/numeric_service.py": "a2fdcba40fc29af49cac5bda42634754142722127e8405200a18d47f79206f1b",
+    "src/qru_registerization/quaternion_geometry.py": "1468faa542666b6fe804f542e024a95fde0f56fdc86dc535b01c530cc882f0b6",
+    "src/qru_registerization/direct_qsp.py": "95d6593990e0850a431b68c8e95b753c31a9f62a90bc341312fd6eb3dee3301b",
+    "src/qru_registerization/qru.py": "6871e3acef1c7b45b3b60935dc2fd4176b1787ecfae22f559e71e4b5a4e7fff8",
+    "src/qru_registerization/interface.py": "408f7035835d29dc9791b61669444dcb74e83159b5ca0e23da3898d3eadc8218",
+    "src/qru_registerization/encoding.py": "6508a8a206cf7524b6ea7df9425942a67f189ee1fd01d3bb174ea1e77947e4c2",
+    "src/qru_registerization/memory_contract.py": "28c01c8c64471073f6539f7aa216cac428e3d6dc79f8fc583052901ed32e934c",
+    "src/qru_registerization/__init__.py": "c1d705c73e6f69704fa0e6d60e8f5d1b9a46a122a831d8386c32fb11f6ade165",
+    "src/qru_registerization/quaternion_lift.py": "5cbb26ee9e1247c576895bb34575ff80eb72eaad3d69459560abeb5b056b382e",
+    "src/qru_registerization/certification.py": "eaa98fe34099f5af98752bd9f06db12f2bc52f14d0e4505fde9109e81224582c",
+    "src/qru_registerization/structural.py": "e0094d373f54b2647b33473ce873847b16f36e32e3fe7deb709fc7e13cdc3e3f",
+    "src/qru_registerization/process.py": "3aba853be8caf08cc24efe837d41352dae1040084e05cec6e7cf82d2189ffeda",
+    "src/qru_registerization/channel.py": "1015023ffdddaa47a782b634f4a0532c4efc7422907537cf4933e16f74d1818d",
+    "src/qru_registerization/readout_geometry.py": "777849ff2381b65e5a89ba5191ad8bfb95a9eb341f36e7c0dfe530a927ac79c3",
+    "experiments/revision_study.py": "74b4b6bb5482b0bab38c8d4d458f2794a80cdd38b42813c82656e88b21de4e52"
+  },
+  "python": "3.12.14"
+}

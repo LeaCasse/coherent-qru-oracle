@@ -1,31 +1,25 @@
-# Coherent QRU score oracles
+# Coherent score oracles
 
-Code for *Composing coherent score oracles: workspace contracts and quaternion covariance*.
+Code and data for *Workspace contracts for coherent score oracles*.
 
-Python 3.12:
+The experiments cover QRU preparation geometry, QPE and GQSP, workspace reuse and certified renewal.
+
+## Run
+
+Use Python 3.12:
 
 ```bash
-python -m pip install -r requirements-lock.txt
-python -m pip install -e . --no-deps
+python -m pip install -e ".[test]"
 python reproduce.py verify
 python reproduce.py figures
-python reproduce.py notebook
 ```
 
-Full recalculation:
+The figures used in the paper are written to `outputs/figures/paper/`. This uses the saved results, so there is no need to rerun the experiments first.
+
+To recompute the V3 studies:
 
 ```bash
 python reproduce.py experiments
-python reproduce.py compare
-python reproduce.py figures --data outputs/results
 ```
 
-Run one campaign with `python reproduce.py experiments --study renewal_study`.
-Results are saved during campaigns in `outputs/results/`. Figures use archived data by default.
-
-- `src/`: QRUs, coherent channels, circuits and workspace contracts
-- `experiments/`: nine campaigns
-- `figures/`: generators for all 21 figures
-- `reference_data/`: paper results and protocol specifications
-- `notebooks/reproduce_paper.ipynb`: worked reproduction
-- `tests/`: mathematical and circuit checks
+See [REPRODUCING.md](REPRODUCING.md) for individual studies, data files and earlier results.

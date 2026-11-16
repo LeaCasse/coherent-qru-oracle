@@ -117,7 +117,8 @@ def run():
     axes[0].set(xscale="log",xlabel="CX depolarizing parameter",ylabel="Choi perturbation")
     axes[0].legend(fontsize=8);axes[0].grid(alpha=.15)
     axes[1].set(ylabel="Compiled CX",ylim=(0,1600))
-    axes[2].set(xscale="symlog",linthresh=1e-5,xlabel="CX depolarizing parameter",ylabel="Total Choi error");axes[2].set_xlim(-1e-6,1.15e-3);axes[2].set_xticks([0,1e-5,1e-4,1e-3],labels=["0",r"$10^{-5}$",r"$10^{-4}$",r"$10^{-3}$"]);axes[2].grid(alpha=.15)
+    axes[2].set_xscale("symlog",linthresh=1e-5)
+    axes[2].set(xlabel="CX depolarizing parameter",ylabel="Total Choi error");axes[2].set_xlim(-1e-6,1.15e-3);axes[2].set_xticks([0,1e-5,1e-4,1e-3],labels=["0",r"$10^{-5}$",r"$10^{-4}$",r"$10^{-3}$"]);axes[2].grid(alpha=.15)
     save(fig,"05_noise")
     fig,ax=plt.subplots(figsize=(6.5,3.0))
     for depth,color in [("2",NAVY),("4",OCHRE)]:

@@ -22,7 +22,8 @@ def score_block_encoding(params, input_bits, x0, step, axis, fibre_step=0.0):
     return b
 
 
-def alternating_protocol(params, x0, step, axis, phase_bits=2, k=2, fused=False):
+def alternating_protocol(params, x0, step, axis, phase_bits=2, k=2, fused=False,
+                         query_implementation="controlled_preparation", initialization="prepared"):
     """Alternating Z,X controls with shared work, optionally cancelling E E†.
 
     Exact same input-target-work unitary. The optimization is elementary
@@ -31,7 +32,8 @@ def alternating_protocol(params, x0, step, axis, phase_bits=2, k=2, fused=False)
     """
     n = 2**phase_bits
     scores = -np.cos(2 * np.pi * np.arange(n) / n) / np.cos(np.pi / n)
-    e = affine_estimator(params, 1, x0, step, axis, phase_bits=phase_bits, taper="sine")
+    e = affine_estimator(params, 1, x0, step, axis, phase_bits=phase_bits, taper="sine",
+                         query_implementation=query_implementation,initialization=initialization)
     target = e.num_qubits
     circuit = QuantumCircuit(target + 1)
     phase = list(range(1, 1 + phase_bits))
@@ -53,6 +55,8 @@ def alternating_protocol(params, x0, step, axis, phase_bits=2, k=2, fused=False)
                 gamma=0.8,
                 taper="sine",
                 control_scores=scores,
+                query_implementation=query_implementation,
+                initialization=initialization,
             )
             circuit.compose(step_circuit, inplace=True)
         if j % 2:

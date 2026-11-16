@@ -19,7 +19,9 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = Path(os.environ.get("QRU_RESULTS_DIR", ROOT / "outputs/results")) / "process_study"
 
 
-def run():
+def run(optimized=False):
+    global OUT
+    if optimized:OUT=OUT.parent/'v3/noise'
     OUT.mkdir(parents=True, exist_ok=True)
     rows = []
     axis = [0.3, -0.4, np.sqrt(0.75)]
@@ -42,6 +44,7 @@ def run():
             "small sensitivity pilot; not hardware validation "
             "or noise-general guarantee"
         ),
+        "query_implementation":"reflections" if optimized else "controlled_preparation",
     }
     (OUT / "noise_protocol.json").write_text(json.dumps(specification, indent=2))
     for seed in specification["seeds"]:
@@ -62,6 +65,7 @@ def run():
                 1.6,
                 axis,
                 fused=fused,
+                query_implementation=specification['query_implementation'],
             )
             expanded = transpile(
                 circuit,
@@ -136,4 +140,6 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--optimized',action='store_true')
+    run(optimized=parser.parse_args().optimized)
