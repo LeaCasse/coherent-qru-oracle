@@ -106,5 +106,29 @@ def main():
     ax.set(yscale='log',xlabel='Magnitude bits',ylabel='Mean full diamond error',title='Numerical allocation')
     ax.legend(fontsize=7,ncol=2)
     finish(fig,'v3_bits')
+    # Keep the V2 numerical-allocation study visible beside the V3 geometry.
+    fig,axes=plt.subplots(1,2,figsize=(6.7,2.65))
+    rows=read('legacy_precision.csv')
+    for m,color,marker in [(3,COLORS[1],'s'),(4,COLORS[2],'^'),(5,COLORS[0],'o')]:
+        for window,style in [('sine','-'),('tophat','--')]:
+            ys=[]
+            for b in [2,4,6,8]:
+                group=[r for r in rows if int(r['phase_bits'])==m and int(r['magnitude_bits'])==b and r['window']==window]
+                assert len(group)==6
+                ys.append(val(group,'diamond_upper').mean())
+            axes[0].plot([2,4,6,8],ys,marker+style,color=color,
+                         label=f'$m={m}$' if window=='sine' else None,ms=3)
+    axes[0].set(yscale='log',xlabel='Magnitude bits',ylabel='Mean full diamond error',
+                title='(a) Numerical precision',xticks=[2,4,6,8])
+    axes[0].legend(fontsize=7)
+    rows=read('fibre.csv')
+    for init,label,color in [('prepared','Prepared',COLORS[0]),('zero','Invariant',COLORS[2])]:
+        group=sorted([r for r in rows if r['initialization']==init and r['protocol']=='mixed' and r['phase_bits']=='3' and r['uses']=='4'],key=lambda r:int(r['seed']))
+        assert len(group)==9
+        axes[1].plot(range(1,10),val(group,'fibre_choi_sensitivity'),'o-',label=label,color=color,ms=3)
+    axes[1].set(xlabel='Evaluation model',ylabel='Normalized Choi sensitivity',
+                title='(b) Input mixing',xticks=[1,3,5,7,9])
+    axes[1].legend(fontsize=8)
+    finish(fig,'v3_interface')
 
 if __name__=='__main__':main()

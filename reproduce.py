@@ -15,10 +15,11 @@ V3_STUDIES = ['precision', 'resources', 'fibre', 'renewal', 'inverse',
     'direct_memory_validation', 'noise']
 LEGACY_FIGURES = ['build_figures', 'build_appendix_channels', 'build_bit_allocation',
     'build_quaternion_fibre', 'build_overview', 'build_paper_circuits', 'build_renewal']
-PAPER_FIGURES = ['C02_service_estimator', '06_renewal', '02_precision',
+PAPER_FIGURES = ['06_renewal', '02_precision',
     'A_03_scalar_vs_channel', 'A_07_quaternion_fibre', 'A_02_fibre_cancellation',
     '04_fibre', '03_memory', 'A_04_dephasing_intervention']
-NEW_FIGURES = ['v3_memory', 'v3_design', 'v3_geometry', 'v3_inverse', 'v3_precision', 'v3_bits']
+NEW_FIGURES = ['v3_memory', 'v3_design', 'v3_geometry', 'v3_inverse', 'v3_precision', 'v3_bits',
+    'v3_framework', 'v3_circuits', 'v3_interface']
 
 
 def command(path, *args, extra_env=None):
@@ -40,13 +41,17 @@ def figures(version, data):
         return
     new_data = data or ROOT/'reference_data/v3'
     command(ROOT/'figures/build_v3.py', extra_env={'QRU_V3_DATA_DIR': str(new_data.resolve())})
+    command(ROOT/'figures/build_v3_schematics.py')
     paper = output/'paper'
     paper.mkdir(exist_ok=True)
+    for stale in paper.glob('*.pdf'):
+        if stale.stem not in PAPER_FIGURES + NEW_FIGURES:
+            stale.unlink()
     for name in PAPER_FIGURES + NEW_FIGURES:
         source = output/('v3' if name in NEW_FIGURES else '')/(name+'.pdf')
         assert source.read_bytes().rstrip().endswith(b'%%EOF'), source
         shutil.copyfile(source, paper/source.name)
-    print(f'Paper figures: {paper} (15 PDFs)')
+    print(f'Paper figures: {paper} ({len(PAPER_FIGURES) + len(NEW_FIGURES)} PDFs)')
 
 
 def experiments(version, study):

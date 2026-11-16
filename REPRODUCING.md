@@ -1,6 +1,6 @@
 # Reproduce the paper
 
-`python reproduce.py verify` checks the saved data, circuit identities and tests. `python reproduce.py figures` builds all 15 figures used across the compact and long manuscripts. No LaTeX installation is needed.
+`python reproduce.py verify` checks the saved data, circuit identities and tests. `python reproduce.py figures` builds all 17 figures used across the compact and long manuscripts. No LaTeX installation is needed.
 
 ## Experiments
 
